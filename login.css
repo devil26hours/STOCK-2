@@ -1,0 +1,37 @@
+/* login page */
+nav {
+    width: 100;
+    height: 7vw;
+}
+.nav-container {
+        max-width: 90vw;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.logonav {
+    width: 17vw;
+    object-fit: contain;
+}
+html, body {
+    height: 100%;
+    align-items: center;
+}
+
+body {
+    padding-top: 5rem;
+}
+
+.form-login {
+    max-width: 25rem;
+    margin: auto;
+    margin-top: 2vw;
+    
+}
+.imgacc {
+    margin-top: 1vw;
+    border-radius: 50%;
+}
+

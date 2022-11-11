@@ -1,0 +1,482 @@
+
+nav {
+    width: 100;
+    height: 7vw;
+    background: linear-gradient(125deg, #1be6c4, #103c9c);
+}
+.nav-container {
+        max-width: 90vw;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.logonav {
+    width: 17vw;
+    object-fit: contain;
+}
+
+.modal-header{
+    background: linear-gradient(125deg, #1be6c4, #103c9c);
+}
+.modal-header2{
+    width: 100%;
+    height: 3.5vw;
+    background: linear-gradient(125deg, #e61b1b, #fd0c70);
+    padding: 2px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2%;
+    
+}
+.modal-header3{
+    width: 100%;
+    height: 3.5vw;
+    background: linear-gradient(125deg, #e4f30e, #fd940c);
+    padding: 2px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2%;
+    
+}
+.modal-header4{
+    width: 100%;
+    height: 3.5vw;
+    background: linear-gradient(125deg, #2cf489, #10fa7d);
+    padding: 2px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2%;
+    
+}
+.container {
+    width: 90vw;
+    height: 1vw;
+    margin: 0 auto;
+    display: flex;
+    cursor: pointer;
+}
+.sidebar {
+    width: 20vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container2 {
+    width: 20vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-left:1vw ;
+}
+.buttontrade {
+    border-radius: 15%;
+    border: 1px solid transparent;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8vw;
+
+}
+.buttontrade:hover {
+    color: #ff0000;
+}
+
+
+.trademenu {
+    display: flex;
+    justify-content: right;
+    margin-right: 12vw;
+    margin-bottom: 1vw;
+}
+
+.btn-success {
+    margin-left: px;
+    margin-right: 0.5vw;
+
+}
+.btn-primary {
+    margin-left: px;
+    margin-right: 0.5vw;
+
+}
+.btn-warning {
+    margin-left: px;
+    margin-right: 0.5vw;
+
+}
+
+.modalHis {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-page{
+    background: #14e7cb;
+    width: 90vw;
+    height: 90%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.modal-page-content{
+    background-color: lightcoral;
+    width: 95%;
+    height: 90%;
+    max-height: 90%;
+    margin-left: 2vw;
+    border-radius: 1vw;
+}
+
+.count {
+    border-radius: 0.5  vw;
+    border: 1.5px solid black;
+}
+.count:hover {
+    background: rgb(199, 197, 197);
+}
+
+.productcontainer {
+    width: 60vw;
+    height: 42vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 1vw;
+}
+
+.tableproduct, th, td {
+    margin-top: 1vw;
+    margin-left: 1vw;   
+}
+
+.menu-bar {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar:hover {
+    background: linear-gradient(125deg, #1be6c4, #103c9c);
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar2 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar2:hover {
+    background: linear-gradient(125deg, #e61b1b, #fd0c70);
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar3 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar3:hover {
+    background: linear-gradient(125deg, #14e7cb, #78fd0c);
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar4 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar4:hover {
+    background: linear-gradient(125deg, #e4f30e, #fd940c);
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar5 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar5:hover {
+    background: #060010;
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar6 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar6:hover {
+    background: linear-gradient(125deg, #e61b1b, #fd2c0c);
+    color: white;
+    transition: 0.3s;
+}
+.menu-bar7 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar7:hover {
+    background: linear-gradient(125deg, #ffff00, #f2dd67);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+.menu-bar8 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar8:hover {
+    background: linear-gradient(125deg, #2cf489, #10fa7d);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+.menu-bar9 {
+    background: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-bar9:hover {
+    background: linear-gradient(125deg, #8b13fb, #10fa7d);
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+.info {
+    padding: 10px;
+    border: 1px solid transparent;
+    width: 100%;
+    outline: none;
+    border-radius: 10px;
+    background: white;
+    transition: .5s;
+    margin-bottom: 25px;
+    font-size: 1vw;
+    border: 1px solid black;
+}
+.image {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 20%;
+
+}
+
+History buy
+.main {
+    width: 100%;
+    height: 100%;
+}
+.maintable {
+    margin-left: 5vw;
+    margin-top: 1vw;
+    margin-right: 5vw;
+    margin-bottom: 5vw;
+    
+}
+
+.AllProductTable {
+    width: 100%;
+    margin-left: 5vw;
+    margin-top: 1vw;
+    margin-right: 5vw;
+    margin-bottom: 5vw;
+}
+
+.AllTable {
+    width: 90%;
+    height: 100%;
+    margin-left: 5vw;
+    margin-top: 1vw;
+
+}
+
+/* nav acc */
+
+.acc {
+    margin-left: 1vw;
+
+}
+.nav-container2 {
+    max-width: 90vw;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+.logonav2 {
+    width: 3vw;
+    object-fit: contain;
+}
+
+.title-stockmain {
+    color: darkgray
+}
+
+
+/* Homepage */
+.containerhomepage {
+
+    width: 100vw;
+    height: 100%;
+
+}
+
+.sidebar2 {
+
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    margin: auto;
+}
+
+.homepagecontainer {
+    width: 100%;
+    height: 100%;
+}
+
+/* shipsabuy */
+
+.nav-2 {
+    width: 100;
+    height: 7vw;
+    background: linear-gradient(125deg, #d30000, #d30000);
+}
+
+/* flash */
+
+.nav-3 {
+    width: 100;
+    height: 7vw;
+    background: linear-gradient(125deg, #ffff00, #c7c705);
+}
+/* bitkub */
+
+.nav-4 {
+    width: 100;
+    height: 7vw;
+    background: linear-gradient(125deg, #2cf489, #10fa7d);
+}
+.nav-5 {
+    width: 100;
+    height: 7vw;
+    background: linear-gradient(125deg, #8b13fb, #10fa7d);
+}
+
+/* req */
+
+.container3 {
+    width: 24.5vw;
+    height: 9vw;
+    background: linear-gradient(125deg, #e6ddf3, #66f4ad);
+    margin-top: 0.7vw;
+    border-radius: 20px;
+    border: 1px solid grey;
+}
+.container3-bar {
+    width: 100%;
+    height: 100%;
+    margin-left: 1vw;
+    margin-top: 0.5vw
+
+}
+.menu-barform-1 {
+    background: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+}
+.menu-barform-2 {
+    width: 60px;
+    background: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+}
+
+.menu-barform-3 {
+    width: 60px;
+    background: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+}
+.menu-barform-3:hover{
+    background: linear-gradient(125deg, #27fd14, #66f4ad);
+}
+.menu-barform-4 {
+    width: 91.5%;
+    background: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+}

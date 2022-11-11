@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIPPOP STOCK</title>
+
+    <link rel="icon" href="./imgs/logotitle.png" type="image/icon type">
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <nav>
+            <div class="nav-container">
+                <a href="index.html">
+                    <img src="./imgs/shippoplogo.png" class="logonav">
+                </a>  
+                <H1 class="title-stockmain"><sub>STOCK</sub></H1> 
+                <div class="acc">
+                  <img id="avatar" src="./imgs/user-anonymous.png" class="logonav2">
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a id="fname" class="dropdown-item">User Name</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                  </ul>
+                </div>
+
+            </div>
+    </nav>
+
+      <div class="container">
+
+       
+
+        <div class="sidebar">
+          <button class="menu-bar5" onclick="document.location='HOMEPAGE.html'"><i class="fa-solid fa-backward"></i> HOMEPAGE </button> 
+          <h4>MENU</h4>
+          <button onclick="buyproduct()"  class="menu-bar3"  >
+            <i class="fa-solid fa-cart-shopping"></i> BUY
+          </button>
+          <button onclick="sellproduct()" class="menu-bar2"  >
+            <i class="fa-brands fa-sellcast"></i> SELL
+          </button>
+          <button   class="menu-bar4" data-bs-toggle="modal" data-bs-target="#modaladd" style="font-size: 1vw;">
+            <i class="fa-brands fa-dropbox"></i> ADD NEW PRODUCT
+          </button>
+          <p>
+          <h4>POP SET</h4>
+          <button onclick="reset_ddl1()"  class="menu-bar" data-bs-toggle="modal" data-bs-target="#modalSet">
+            <i class="fa-solid fa-boxes-stacked"></i> SET POP 3000
+          </button>
+          <button onclick="reset_ddl1()" class="menu-bar" data-bs-toggle="modal" data-bs-target="#modalSet2">
+            <i class="fa-solid fa-boxes-stacked"></i> SET POP PLUS
+          </button>
+          <button onclick="reset_ddl1()" class="menu-bar" data-bs-toggle="modal" data-bs-target="#modalSet3">
+            <i class="fa-solid fa-boxes-stacked"></i> SET POP SHOP
+          </button>
+          <td>
+            <p>
+            <h4><i class="fa-solid fa-exclamation"></i> Receipt & Info</h4>
+            <input  onfocus="this.value=''" class="info" id="invoid" type="text" style="text-align: center;" placeholder="กรอกข้อมูลอ้างอิง">
+        </div>
+ 
+      <div class="productcontainer"> 
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Count</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tbody>
+                
+              </tbody>  
+            </tbody>
+        </table>      
+    </div>
+
+        <div class="container2">
+            <h4>REPORT & HISTORY</h4>
+             
+            <button class="menu-bar" onclick="document.location='HistoryBuyPage.html'"><i class="fa-solid fa-clock-rotate-left"></i> Buy </button> 
+            <button class="menu-bar" onclick="document.location='HistorySellPage.html'"><i class="fa-solid fa-clock-rotate-left"></i> Sell </button>
+            <button class="menu-bar" onclick="document.location='HistorySet3000.html'"><i class="fa-solid fa-clock-rotate-left"></i> POP 3000 </button>
+            <button class="menu-bar" onclick="document.location='HistorySetPlus.html'"><i class="fa-solid fa-clock-rotate-left"></i> POP Plus </button>
+            <button class="menu-bar" onclick="document.location='HistorySetShop.html'"><i class="fa-solid fa-clock-rotate-left"></i> POP Shop</button>
+            <p></p>
+            <button class="menu-bar" onclick="document.location='rpa.html'"><i class="fa-solid fa-table-cells"></i> All Product</button>
+          </div>
+        </div>
+      
+
+    <!-- modal set 3000 -->
+    <div id="modalSet" class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">POP 3000</h5>  
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <select  id="selectshirts" class="form-select" aria-label="Default select example">
+              <option value="" disabled selected>เลือกเสื้อ</option>
+            </select>   
+            <p></p>
+            <select  id="selectshirts2" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option>
+            </select>  
+            <p></p>
+            <select  id="selectshirts3" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option >
+            </select>  
+            <p></p>
+            <br>
+            <select  id="selectvinil" class="form-select" aria-label="Default select example">
+              <option value="">เลือกไวนิล</option>
+            </select>  
+          </div>
+          <div class="modal-footer">
+            <button id="closeaddmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button  onclick="sellSetProduct()" type="button"  class="btn btn-success">Confirm</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal set pop plus -->
+    <div id="modalSet2" class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">POP PLUS</h5>  
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <select  id="selectshirts4" class="form-select" aria-label="Default select example">
+              <option value="" disabled selected>เลือกเสื้อ</option>
+            </select>   
+            <p></p>
+            <select  id="selectshirts5" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option>
+            </select>  
+            <p></p>
+            <select  id="selectshirts6" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option >
+            </select>  
+            <p></p>
+            <br>
+            <select  id="selectvinil2" class="form-select" aria-label="Default select example">
+              <option value="">เลือกไวนิล</option>
+            </select>  
+          </div>
+          <div class="modal-footer">
+            <button id="closeaddmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button  onclick="sellSetProduct2()" type="button"  class="btn btn-success">Confirm</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal set pop Shop -->
+    <div id="modalSet3" class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">POP SHOP</h5>  
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <select  id="selectshirts7" class="form-select" aria-label="Default select example">
+              <option value="" disabled selected>เลือกเสื้อ</option>
+            </select>   
+            <p></p>
+            <select  id="selectshirts8" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option>
+            </select>  
+            <p></p>
+            <select  id="selectshirts9" class="form-select" aria-label="Default select example">
+              <option value="">เลือกเสื้อ</option >
+            </select>  
+            <p></p>
+            <br>
+            <select  id="selectvinil3" class="form-select" aria-label="Default select example">
+              <option value="">เลือกไวนิล</option>
+            </select>  
+          </div>
+          <div class="modal-footer">
+            <button id="closeaddmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button  onclick="sellSetProduct3()" type="button"  class="btn btn-success">Confirm</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!--modal Add Product-->
+    <div id="modaladd" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add Product</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input  id="txtaddmodal" type="text" class="form-control" placeholder="Product Name">
+              <br>
+              <input id="txtaddquantity" type="text" class="form-control" placeholder="Quantity">
+            </div>
+            <div class="modal-footer">
+              <button  id="closeaddmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button onclick="saveproduct()" type="button" class="btn btn-primary">Save changes</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!--modal edit-->
+    <div id="modaledit" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Edit Product</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <input id="txteditmodalname" type="text" class="form-control" placeholder="Product Name">
+              <br>
+              <input id="txteditmodalquantity" type="text" class="form-control" placeholder="Product Quantity">
+            </div>
+            <div class="modal-footer">
+              <button id="closeeditmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button  onclick="updateproduct()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+      
+        var data;
+        var productid = 0;
+        var buydata;
+        var selldata;
+        var vinildata;
+        let res = {};
+        let res_2 ={};
+        let res_3 ={};
+        let ves = {};
+        let ves_2 = {};
+        let ves_3 = {};
+        
+        $(document).ready(() =>{
+          render();
+                  
+        })
+
+        //get
+        function render() {
+          $.ajax({
+                method: 'get',
+                url:'http://localhost:3000/api/getallstock',
+                success: (response) => {
+                    
+                    console.log('Render Get Product !', response)
+                    if(response.resCode == 200) {
+                        data = response.Result;
+                        if(data.length > 0) {
+                          var html = '';
+                          for (let i = 0; i < data.length; i++) {
+                            html += `
+                              <tr>
+                                <th scope="row">${i+1}</th>
+                                <td>${data[i].name}</td>
+                                <td><img class="image" src="${data[i].img}" alt=""></td>
+                                <td>${data[i].quantity} ชิ้น</td> 
+                                <td>
+                                  <p>
+                                    <input  class="count" style="width:90px;" type="number" value ="0" id="totalClicks${i}" min="0" >
+                                    <button onclick="totalClicks(0,${i})" class="buttontrade">RESET</button>
+                                  </p>
+                                </td>
+                                <td>
+                                <!--<button onclick="editproduct(${data[i].id}, ${i})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit">Edit</button>
+                                <button onclick="deleteproduct(${data[i].id}, ${i}, '${data[i].name}')" type="button" class="btn btn-danger">Delete</button>-->
+                                </td>
+                              </tr>
+                            `;
+                          }   
+                          $("#tbody").html(html)                                          
+                      }
+                    }
+                }, error:(err) => {
+                    console.log('bad', err)
+                }
+            }) 
+        }
+        
+
+        //getbuyhistory
+          function render2() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getbuyhistory',
+                  success: (response) => {
+                      console.log('buyhistory', response)
+                      if(response.resCode == 200) {
+                        buydata = response.Result;
+                          if(buydata.length > 0) {
+                            var html2 = '';
+                            for (let i = 0; i < buydata.length; i++) {
+                              html2 += `
+                                <tr>
+                                  <td>${buydata[i].Date}</td>
+                                  <td>${buydata[i].stockname}</td> 
+                                  <td>${buydata[i].quantity}</td> 
+                                  <td>${buydata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#buybody").html(html2)    
+                            render();             
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })
+            }
+
+        //getsellhistory
+          function render3() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getsellhistory',
+                  success: (response) => {
+                      console.log('sellhistory', response)
+                      if(response.resCode == 200) {
+                        selldata = response.Result;
+                          if(selldata.length > 0) {
+                            var html3 = '';
+                            for (let i = 0; i < selldata.length; i++) {
+                              html3 += `
+                                <tr>
+                                  <td>${selldata[i].Date}</td>
+                                  <td>${selldata[i].stockname}</td> 
+                                  <td>${selldata[i].quantity}</td> 
+                                  <td>${selldata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#sellbody").html(html3)    
+                            render();             
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })        
+        } 
+        //getset1history
+          function render4() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getset1history',
+                  success: (response) => {
+
+                      console.log('set1history', response)
+                      if(response.resCode == 200) {
+                        selldata = response.Result;
+                          if(selldata.length > 0) {
+                            var html3 = '';
+                            for (let i = 0; i < selldata.length; i++) {
+                              html3 += `
+                                <tr>
+                                  <td>${selldata[i].Date}</td>
+                                  <td>${selldata[i].stockname}</td> 
+                                  <td>${selldata[i].quantity}</td> 
+                                  <td>${selldata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#set1body").html(html3)    
+                            render();       
+                            ClearFields();      
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })        
+        } 
+        //getset2history
+          function render5() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getset2history',
+                  success: (response) => {
+
+                      console.log('set2history', response)
+                      if(response.resCode == 200) {
+                        selldata = response.Result;
+                          if(selldata.length > 0) {
+                            var html3 = '';
+                            for (let i = 0; i < selldata.length; i++) {
+                              html3 += `
+                                <tr>
+                                  <td>${selldata[i].Date}</td>
+                                  <td>${selldata[i].stockname}</td> 
+                                  <td>${selldata[i].quantity}</td> 
+                                  <td>${selldata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#set2body").html(html3)    
+                            render();  
+                            ClearFields();           
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })        
+        } 
+        //getset2history
+          function render6() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getset3history',
+                  success: (response) => {
+
+                      console.log('set3history', response)
+                      if(response.resCode == 200) {
+                        selldata = response.Result;
+                          if(selldata.length > 0) {
+                            var html3 = '';
+                            for (let i = 0; i < selldata.length; i++) {
+                              html3 += `
+                                <tr>
+                                  <td>${selldata[i].Date}</td>
+                                  <td>${selldata[i].stockname}</td> 
+                                  <td>${selldata[i].quantity}</td> 
+                                  <td>${selldata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#set3body").html(html3)    
+                            render();      
+                            ClearFields();       
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })        
+        } 
+
+        //create
+        function saveproduct() {
+          $.ajax({
+            method: 'post',
+            url:'http://localhost:3000/api/createstock',
+            data: {
+              name: $("#txtaddmodal").val(),
+              quantity: $("#txtaddquantity").val(),
+            }, success: (response) => {
+                console.log('good', response)
+                if(response.resCode == 200) {
+                  Swal.fire({
+                    icon: 'success',
+                    title:'Add Product Complete'
+                  })
+                  $("#closeaddmodal").trigger('click')
+                  render();
+                }
+            }, error: (err) => {
+                console.log('bad', err)
+            }
+          })
+        }
+        
+        function editproduct(pid, index) {
+          $("#txteditmodalname").val(data[index].name);
+          $("#txteditmodalquantity").val(data[index].quantity);
+          productid = pid;
+        }
+ 
+        //update
+        function updateproduct() {
+          $.ajax({
+            method: 'put',
+            url: 'http://localhost:3000/api/updatestock',
+            data:{
+              id: parseInt(productid),
+              name: $("#txteditmodalname").val(),
+              quantity: $("#txteditmodalquantity").val()
+            }, success: (response) => {
+              console.log('good', response)
+              if(response.resCode == 200) {
+                Swal.fire({
+                  icon: 'success',
+                  title: 'Update successfuly'
+                })
+                $("#closeeditmodal").trigger('click')
+                render();
+              }
+            }, error: (err) => {
+              console.log('bad',err)
+            }
+          })
+        }
+
+          function getTime() {
+            const date = new Date();
+            return date.getFullYear()
+                    + '-' +
+                    date.getMonth()
+                    + '-' +
+                    date.getDate()
+                    + ' ' +
+                    date.getHours()
+                    + ':' +
+                    date.getMinutes()
+                    + ':' +
+                    date.getSeconds();
+          }
+
+            //buy
+            function buyproduct(){
+               Swal.fire({
+                title: 'Do you want to save buy changes?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Save',
+                denyButtonText: `Don't save`,
+               }).then((result) => {
+                 if (result.isConfirmed) {
+                  for (let i = 0; i < data.length; i++) {
+                      if($(`#totalClicks${i}`).val() !=0 ){ 
+                        console.log (parseInt(data[i].quantity) + parseInt($(`#totalClicks${i}`).val()))
+                        $.ajax({
+                          method: 'put',
+                          url: 'http://localhost:3000/api/updatestock',
+                          data:{
+                            id: parseInt(data[i].id),
+                            name: data[i].name,
+                            quantity: parseInt(data[i].quantity) + parseInt($(`#totalClicks${i}`).val())
+                          }, 
+                          success: (response) => {
+                            console.log('good', response)
+                            if(response.resCode == 200) {
+                              $.ajax({
+                                method: 'post',
+                                url: 'http://localhost:3000/api/insertstock',
+                                data: {
+                                  Date: getTime(),
+                                  stockname: data[i].name,
+                                  quantity: parseInt($(`#totalClicks${i}`).val()),
+                                  invoid_no: $("#invoid").val()
+                                }, 
+                                  success: (response) => {
+                                    temp = {
+                                        id: parseInt(data[i].id),
+                                        Date: getTime() ,
+                                        stockname: data[i].name,
+                                        quantity: parseInt($(`#totalClicks${i}`).val()),
+                                        invoid_no: $("#invoid").val()
+                                    }
+                                    console.log("temp",temp)
+                                    $("#closeeditmodal").trigger('click')
+                                    render();
+                                    ClearFields();  
+                                  }       
+                              })
+                            }
+                          }, 
+                          error: (err) => {
+                            console.log('bad',err)   
+                          }
+                        })
+                      }
+            }
+                  Swal.fire('Saved!', '', 'success')
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved', '', 'info')
+                }
+              })
+          }
+
+            //sell
+            function sellproduct(){
+               Swal.fire({
+                title: 'Do you want to save sell changes?',
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: 'Save',
+                denyButtonText: `Don't save`,
+               }).then((result) => {
+                 if (result.isConfirmed) {
+                  for (let i = 0; i < data.length; i++) {
+                      if($(`#totalClicks${i}`).val() !=0 ){ 
+                        console.log (parseInt(data[i].quantity) + parseInt($(`#totalClicks${i}`).val()))
+                        $.ajax({
+                          method: 'put',
+                          url: 'http://localhost:3000/api/updatestock',
+                          data:{
+                            id: parseInt(data[i].id),
+                            name: data[i].name,
+                            quantity: parseInt(data[i].quantity) - parseInt($(`#totalClicks${i}`).val())
+                          }, 
+                          success: (response) => {
+                            console.log('good', response)
+                            if(response.resCode == 200) {
+                              $.ajax({
+                                method: 'post',
+                                url: 'http://localhost:3000/api/insertsellstock',
+                                data: {
+                                  Date: getTime(),
+                                  stockname: data[i].name,
+                                  quantity: parseInt($(`#totalClicks${i}`).val()),
+                                  invoid_no: $("#invoid").val()
+                                }, 
+                                  success: (response) => {
+                                    temp = {
+                                        id: parseInt(data[i].id),
+                                        Date: getTime() ,
+                                        stockname: data[i].name,
+                                        quantity: parseInt($(`#totalClicks${i}`).val()),
+                                        invoid_no: $("#invoid").val()
+                                    }
+                                    console.log("temp",temp)
+                                    $("#closeeditmodal").trigger('click')
+                                    render();
+                                    ClearFields();  
+                                  }       
+                              })
+                            }
+                          }, 
+                          error: (err) => {
+                            console.log('bad',err)   
+                          }
+                        })
+                      }
+                   }
+                  Swal.fire('Saved!', '', 'success')
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved', '', 'info')
+                }
+              })
+            
+          }
+                 
+          //sellset1pop3000
+          function sellSetProduct(){
+            var setproductlist
+            Swal.fire({
+                    title: 'Do you want to save the changes?',
+                    showDenyButton: false,
+                    showCancelButton: true,
+                    confirmButtonText: 'Save',
+                    denyButtonText: `Don't save`,
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      $.ajax({
+                method: 'get',
+                url: 'http://localhost:3000/api/getsetquantity',
+                success: (response) => {
+                  setproductlist = response.Result
+                  for (let i = 0; i < data.length; i++) {
+                    for(let j = 0; j < setproductlist.length; j++) {
+                      if (setproductlist[j].set_id == 1 && data[i].id == setproductlist[j].product_id) { 
+                        $.ajax({
+                          method: 'put',
+                          url: 'http://localhost:3000/api/updatestock',
+                          data:{
+                          name: data[i].name,
+                          id: parseInt(setproductlist[j].product_id),
+                          quantity: parseInt(data[i].quantity) - parseInt(setproductlist[j].quantity)
+                          }, 
+                          success: (response) => {
+                                $.ajax({
+                                method: 'post',
+                                url: 'http://localhost:3000/api/insertset1stock',
+                                data: {
+                                  Date: getTime(),
+                                  stockname: data[i].name,
+                                  quantity: parseInt(setproductlist[j].quantity),
+                                  invoid_no: $("#invoid").val()
+                                }, 
+                                success: (response) => {
+                                  temp = {
+                                      id: parseInt(data[i].id),
+                                      Date: getTime() ,
+                                      stockname: data[i].name,
+                                      quantity: parseInt(setproductlist[j].quantity),
+                                      invoid_no: $("#invoid").val()
+                                  }
+                                    $("#closeeditmodal").trigger('click')
+                                    render();
+                                    ClearFields();  
+                                }       
+                              })
+                            console.log('SellSet 1 !', response)
+                            if(response.resCode == 200) {
+                            $("#closeeditmodal").trigger('click')
+                            $("#modalSet").trigger('click')
+                            render();
+                            }
+                          }, 
+                          error: (err) => {
+                            console.log('bad',err)
+                          }
+                        })
+                      }
+                    }
+                  }
+                }, 
+                error: (err) => {
+                  console.log('bad',err)
+                }
+            })
+                      Swal.fire('Saved!', '', 'success')
+                      sellshirtall()
+                      sellvinil()
+                      
+                    } else if (result.isDenied) {
+                      Swal.fire('Changes are not saved', '', 'info')
+                    }
+                  }) 
+          }
+          
+
+          //sellset2popplus
+          function sellSetProduct2(){
+            var setproductlist
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: false,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                $.ajax({
+                method: 'get',
+                url: 'http://localhost:3000/api/getsetquantity',
+                success: (response) => {
+                  setproductlist = response.Result
+                  for (let i = 0; i < data.length; i++) {
+                    for(let j = 0; j < setproductlist.length; j++) {
+                      if (setproductlist[j].set_id == 2 && data[i].id == setproductlist[j].product_id) { 
+                        $.ajax({
+                          method: 'put',
+                          url: 'http://localhost:3000/api/updatestock',
+                          data:{
+                          name: data[i].name,
+                          id: parseInt(setproductlist[j].product_id),
+                          quantity: parseInt(data[i].quantity) - parseInt(setproductlist[j].quantity)
+                          }, 
+                          success: (response) => {
+                            $.ajax({
+                                method: 'post',
+                                url: 'http://localhost:3000/api/insertset2stock',
+                                data: {
+                                  Date: getTime(),
+                                  stockname: data[i].name,
+                                  quantity: parseInt(setproductlist[j].quantity),
+                                  invoid_no: $("#invoid").val()
+                                }, 
+                                success: (response) => {
+                                  temp = {
+                                      id: parseInt(data[i].id),
+                                      Date: getTime() ,
+                                      stockname: data[i].name,
+                                      quantity: parseInt(setproductlist[j].quantity),
+                                      invoid_no: $("#invoid").val()
+                                  }
+                                    $("#closeeditmodal").trigger('click')
+                                    $("#modalSet2").trigger('click')
+                                    render();
+                                    ClearFields();  
+                                }       
+                              })
+                            console.log('sell set 2', response)
+                            if(response.resCode == 200) {
+                            $("#closeeditmodal").trigger('click')
+                            render(); 
+                            }
+                          }, 
+                          error: (err) => {
+                            console.log('bad',err)
+                          }
+                        })
+                      }
+                    }
+                  }
+                }, 
+                error: (err) => {
+                  console.log('bad',err)
+                }
+            })
+                Swal.fire('Saved!', '', 'success')
+                sellshirtall2()
+                sellvinil2()
+                
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })
+          }
+
+
+
+          //sellset3 pop shop
+          function sellSetProduct3(){
+            var setproductlist
+            Swal.fire({
+              title: 'Do you want to save the changes?',
+              showDenyButton: false,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Don't save`,
+            }).then((result) => {
+              if (result.isConfirmed) {
+                $.ajax({
+                method: 'get',
+                url: 'http://localhost:3000/api/getsetquantity',
+                success: (response) => {
+                  setproductlist = response.Result
+                  for (let i = 0; i < data.length; i++) {
+                    for(let j = 0; j < setproductlist.length; j++) {
+                      if (setproductlist[j].set_id == 3 && data[i].id == setproductlist[j].product_id) { 
+                      
+                        $.ajax({
+                          method: 'put',
+                          url: 'http://localhost:3000/api/updatestock',
+                          data:{
+                          name: data[i].name,
+                          id: parseInt(setproductlist[j].product_id),
+                          quantity: parseInt(data[i].quantity) - parseInt(setproductlist[j].quantity)
+                          }, 
+                          success: (response) => {
+                            $.ajax({
+                                method: 'post',
+                                url: 'http://localhost:3000/api/insertset3stock',
+                                data: {
+                                  Date: getTime(),
+                                  stockname: data[i].name,
+                                  quantity: parseInt(setproductlist[j].quantity),
+                                  invoid_no: $("#invoid").val()
+                                }, 
+                                success: (response) => {
+                                  temp = {
+                                      id: parseInt(data[i].id),
+                                      Date: getTime() ,
+                                      stockname: data[i].name,
+                                      quantity: parseInt(setproductlist[j].quantity),
+                                      invoid_no: $("#invoid").val()
+                                  }
+                                    $("#closeeditmodal").trigger('click')
+                                    $("#modalSet3").trigger('click')
+                                    render();
+                                    ClearFields();  
+                                }       
+                              })
+                            console.log('good', response)
+                            if(response.resCode == 200) {
+                            $("#closeeditmodal").trigger('click')
+                            render(); 
+                            }
+                          }, 
+                          error: (err) => {
+                            console.log('bad',err)
+                          }
+                        })
+                      }
+                    }
+                    
+                  }
+                  
+                }, 
+                error: (err) => {
+                  console.log('bad',err)
+                }
+            })
+                Swal.fire('Saved!', '', 'success')
+                sellshirtall3()
+                sellvinil3()
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })   
+          }
+
+        //delete
+        function deleteproduct(pid, index, name){
+          Swal.fire({
+              icon: "warning",
+              title: 'Are you sure to delete '+ name +'?',
+              showConfirmButton: false,
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Delete`,
+          }).then((result) => {
+              if (result.isDenied) {
+                $.ajax({
+                  method: 'delete',
+                  url: 'http://localhost:3000/api/deletestock',
+                  data: {
+                    id: pid
+                  }, success: (response) => {
+                    console.log('good', response)
+                    if(response.resCode == 200) {
+                      Swal.fire('Changes are saved', '', 'success')
+                      render();
+                    }
+                  }, error: (err) =>{
+                    console.log('bad', err)
+                  }
+                })
+                
+              }
+          })
+        }
+
+        $(function(){
+            $('#Set1BodyT').change(function(){
+              var display =$("#Set1BodyT option:selected").text();
+              $('#textresulte').val(display);
+            })
+        })
+
+
+
+        function totalClicks(click, totalid) {
+          const totalClicks = document.getElementById("totalClicks"+totalid);
+          const sumvalue = parseInt(totalClicks.value) +click;
+          console.log(sumvalue + click);
+          totalClicks.value = sumvalue;
+          console.log (totalClicks);
+
+          // avoid
+          if(totalid < 0) {
+            totalClicks.value = 0;
+          }
+          //Reset valute
+          if(click === 0){
+            totalClicks.value = 0;
+          }
+        }      
+
+        function totalClicks2(click, totalid) {
+          const totalClicks2 = document.getElementById("totalClicks2"+totalid);
+          const sumvalue = parseInt(totalClicks2.value) +click;
+          console.log(sumvalue + click);
+          totalClicks2.value = sumvalue;
+          console.log (totalClicks2);
+
+          // avoid
+          if(totalid < 0) {
+            totalClicks2.value = 0;
+          }
+          //Reset valute
+          if(click === 0){
+            totalClicks2.value = 0;
+          }
+        }      
+        
+        function ClearFields(){
+          document.getElementById("invoid").value = "";
+        }
+
+        function gettimetodate(Date) {
+          Date = parseInt(Date)
+          var d = new Date(Date)
+          var dd = d.getDate() < 10 ? '0'+d.getDate() : d.getDate();
+          var dm = (d.getMonth() < 10 ? '0'+d.getMonth() : d.getMonth()+1);
+          var dy = d.getFullYear();
+          var th = d.getHours() < 10 ? '0'+d.getHours() : d.getHours();
+          var tm = d.getMinutes() < 10 ? '0'+d.getMinutes() : d.getMinutes();
+          var ts = d.getSeconds() < 10 ? '0'+d.getSeconds() : d.getSeconds();
+
+          return `${dd}/${dm}/${dy} ${th}:${tm}:${ts}`
+
+        }
+
+        //shirts
+        const shirts = [{id: 27, name: 'เสื้อ SHIPPOP S'},
+        {id: 28, name: 'เสื้อ SHIPPOP M'},
+        {id: 29, name: 'เสื้อ SHIPPOP L'},
+        {id: 30, name: 'เสื้อ SHIPPOP XL'},
+        {id: 31, name: 'เสื้อ SHIPPOP XXL'},
+        {id: 32, name: 'เสื้อ SHIPPOP 3XL'}]
+
+        //shirt no1
+        shirts.forEach((shirts) => {
+          let x = document.createElement("option");
+          x.value = shirts.id;
+          x.text = shirts.name;
+          selectshirts.append(x.cloneNode(true));
+          selectshirts2.append(x.cloneNode(true));
+          selectshirts3.append(x.cloneNode(true));
+          selectshirts4.append(x.cloneNode(true));
+          selectshirts5.append(x.cloneNode(true));
+          selectshirts6.append(x.cloneNode(true));
+          selectshirts7.append(x.cloneNode(true));
+          selectshirts8.append(x.cloneNode(true));
+          selectshirts9.append(x.cloneNode(true));
+          
+        });
+
+          //select Set 3000
+          selectshirts.onchange = function(){
+             res = {
+            res1:parseInt(selectshirts.value),
+            res2:parseInt(selectshirts2.value),
+            res3:parseInt(selectshirts3.value),
+          }
+          console.log('res1',res);
+          }
+
+          selectshirts2.onchange = function(){
+             res = {
+            res1:parseInt(selectshirts.value),
+            res2:parseInt(selectshirts2.value),
+            res3:parseInt(selectshirts3.value),
+          }
+          console.log('res2',res);
+          }
+
+          selectshirts3.onchange = function(){
+             res = {
+            res1:parseInt(selectshirts.value),
+            res2:parseInt(selectshirts2.value),
+            res3:parseInt(selectshirts3.value),
+          }
+          console.log('res3',res);
+          }
+
+          //select set plus
+          selectshirts4.onchange = function(){
+             res_2 = {
+            res1:parseInt(selectshirts4.value),
+            res2:parseInt(selectshirts5.value),
+            res3:parseInt(selectshirts6.value),
+          }
+          console.log('res4',res_2);
+          }
+
+          selectshirts5.onchange = function(){
+             res_2 = {
+            res1:parseInt(selectshirts4.value),
+            res2:parseInt(selectshirts5.value),
+            res3:parseInt(selectshirts6.value),
+          }
+          console.log('res5',res_2);
+          }
+
+          selectshirts6.onchange = function(){
+             res_2 = {
+            res1:parseInt(selectshirts4.value),
+            res2:parseInt(selectshirts5.value),
+            res3:parseInt(selectshirts6.value),
+          }
+          console.log('res6',res_2);
+          }
+
+          //select set shop
+          selectshirts7.onchange = function(){
+             res_3 = {
+            res1:parseInt(selectshirts7.value),
+            res2:parseInt(selectshirts8.value),
+            res3:parseInt(selectshirts9.value),
+          }
+          console.log('res7',res_3);
+          }
+
+          selectshirts8.onchange = function(){
+             res_3 = {
+            res1:parseInt(selectshirts7.value),
+            res2:parseInt(selectshirts8.value),
+            res3:parseInt(selectshirts9.value),
+          }
+          console.log('res8',res_3);
+          }
+
+          selectshirts9.onchange = function(){
+             res_3 = {
+            res1:parseInt(selectshirts7.value),
+            res2:parseInt(selectshirts8.value),
+            res3:parseInt(selectshirts9.value),
+          }
+          console.log('res9',res_3);
+          }
+
+        
+
+        //vinil
+        const vinil = [{id: 22, name: '	ไวนิล 2.5x1.45'},
+        {id: 23, name: 'ไวนิล 3.5 x 1'},
+        {id: 24, name: 'ไวนิล 3.5 x 2'},
+        {id: 25, name: 'ไวนิล 4x2.5'}]
+        
+        vinil.forEach((vinil) => {
+          let o = document.createElement("option");
+          o.value = vinil.id;
+          o.text = vinil.name;
+          selectvinil.append(o.cloneNode(true));
+          selectvinil2.append(o.cloneNode(true));
+          selectvinil3.append(o.cloneNode(true));
+        });
+
+        //vinil set 3000
+        selectvinil.onchange = function () {
+          ves = {
+            ves1:parseInt(selectvinil.value),
+
+          }
+          console.log('ves',ves);
+        }
+
+        //vinil set pop plus
+        selectvinil2.onchange = function () {
+          ves_2 = {
+            ves1:parseInt(selectvinil2.value),
+   
+          }
+          console.log('ves2',ves_2);
+        }
+
+        //vinil set pop shop
+        selectvinil3.onchange = function () {
+          ves_3 = {
+            ves1:parseInt(selectvinil3.value),
+
+          }
+          console.log('ves3',ves_3);
+        }
+
+        //sell shirts pop 3000
+        function sellshirtall() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if(res.res1 !=0 ){
+              console.log('shirt1',res.res1)
+              if ((data[i-1].id) == res.res1) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                  $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset1stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }          
+              if(res.res2 !=0 ){
+              console.log('shirt2',res.res2)
+              if ((data[i-1].id) == res.res2) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset1stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }
+              if(res.res3 !=0 ){
+              console.log('shirt3',res.res3)
+              if ((data[i-1].id) == res.res3) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset1stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+                 }
+              }
+              render();
+              } 
+            }
+          }
+        }
+
+        //sell shirts pop plus
+        function sellshirtall2() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if(res_2.res1 !=0 ){
+              console.log('shirt1',res_2.res1)
+              if ((data[i-1].id) == res_2.res1) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                  $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset2stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }          
+              if(res_2.res2 !=0 ){
+              console.log('shirt2',res_2.res2)
+              if ((data[i-1].id) == res_2.res2) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset2stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }
+              if(res_2.res3 !=0 ){
+              console.log('shirt3',res_2.res3)
+              if ((data[i-1].id) == res_2.res3) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset2stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+                 }
+              }
+              render();
+              } 
+            }
+          }
+        }
+        //sell shirts pop shop
+        function sellshirtall3() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if(res_3.res1 !=0 ){
+              console.log('shirt1',res_3.res1)
+              if ((data[i-1].id) == res_3.res1) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                  $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset3stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }          
+              if(res_3.res2 !=0 ){
+              console.log('shirt2',res_3.res2)
+              if ((data[i-1].id) == res_3.res2) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                data[i-1].quantity -= 1;
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset3stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+              }
+              if(res_3.res3 !=0 ){
+              console.log('shirt3',res_3.res3)
+              if ((data[i-1].id) == res_3.res3) {
+                $.ajax ({
+                  method : 'put',
+                  url: 'http://localhost:3000/api/updatestock',
+                  data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                  }, 
+                })
+                $.ajax({
+                      method: 'post',
+                      url: 'http://localhost:3000/api/insertset3stock',
+                      data: {
+                        Date: getTime(),
+                        stockname: data[i-1].name,
+                        quantity: 1 ,
+                        invoid_no: $("#invoid").val()
+                      },
+                    })
+                 }
+              }
+              render();
+              } 
+            }
+          }
+        }
+
+
+
+
+        //sell vinil pop 3000
+        function sellvinil() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if (ves.ves1 !=0) {
+              console.log('Vinil',ves.ves1)
+            }
+            if ((data[i-1].id == ves.ves1)) {
+              $.ajax({
+                method: 'put',
+                url: 'http://localhost:3000/api/updatestock',
+                data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                },
+              })
+              data[i-1].quantity -=1;
+              $.ajax({
+                method: 'post',
+                url: 'http://localhost:3000/api/insertset1stock',
+                data: {
+                  Date: getTime(),
+                  stockname: data[i-1].name,
+                  quantity: 1 ,
+                  invoid_no: $("#invoid").val()
+                },
+              })
+            }
+          }
+        }
+
+        //sell vinil pop plus
+        function sellvinil2() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if (ves_2.ves1 !=0) {
+              console.log('Vinil',ves_2.ves1)
+            }
+            if ((data[i-1].id == ves_2.ves1)) {
+              $.ajax({
+                method: 'put',
+                url: 'http://localhost:3000/api/updatestock',
+                data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                },
+              })
+              data[i-1].quantity -=1;
+              $.ajax({
+                method: 'post',
+                url: 'http://localhost:3000/api/insertset2stock',
+                data: {
+                  Date: getTime(),
+                  stockname: data[i-1].name,
+                  quantity: 1 ,
+                  invoid_no: $("#invoid").val()
+                },
+              })
+            }
+          }
+        }
+
+        //sell vinil pop shop
+        function sellvinil3() {
+          for (let i = 1; i < data.length + 1; i++) {
+            if (ves_3.ves1 !=0) {
+              console.log('Vinil',ves_3.ves1)
+            }
+            if ((data[i-1].id == ves_3.ves1)) {
+              $.ajax({
+                method: 'put',
+                url: 'http://localhost:3000/api/updatestock',
+                data:{
+                  id: parseInt(data[i-1].id),
+                  name: data[i-1].name,
+                  quantity: parseInt(data[i-1].quantity) - 1
+                },
+              })
+              data[i-1].quantity -=1;
+              $.ajax({
+                method: 'post',
+                url: 'http://localhost:3000/api/insertset3stock',
+                data: {
+                  Date: getTime(),
+                  stockname: data[i-1].name,
+                  quantity: 1 ,
+                  invoid_no: $("#invoid").val()
+                },
+              })
+            }
+          }
+        }
+
+        function reset_ddl1(){
+            $("#selectshirts").val($("#selectshirts option:first").val());
+            $("#selectshirts2").val($("#selectshirts option:first").val());
+            $("#selectshirts3").val($("#selectshirts option:first").val());
+            $("#selectshirts4").val($("#selectshirts option:first").val());
+            $("#selectshirts5").val($("#selectshirts option:first").val());
+            $("#selectshirts6").val($("#selectshirts option:first").val());
+            $("#selectshirts7").val($("#selectshirts option:first").val());
+            $("#selectshirts8").val($("#selectshirts option:first").val());
+            $("#selectshirts9").val($("#selectshirts option:first").val());
+            $("#selectvinil").val($("#selectshirts option:first").val());
+            $("#selectvinil2").val($("#selectshirts option:first").val());
+            $("#selectvinil3").val($("#selectshirts option:first").val());
+        }
+        
+
+
+
+    </script>
+</body>
+</html>
