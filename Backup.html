@@ -1,40 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>set History</title>
-
-    <link rel="icon" href="./imgs/logotitle.png" type="image/icon type">
-    
-    <link rel="stylesheet" href="#" type="text/html" >
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="index.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
-    
-<body>
-
-    <nav>
-        <div class="nav-container">
-            <a href="index.html">
-                <img src="./imgs/shippoplogo.png" class="logonav">
-            </a>  
-        </div>
-    </nav>
-    
-
-</body>
-</html>
-
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script>
 
 
 
+// //register
+// app.post('/api/register',jsonParser, (req, res)=>{
+//     var email = _.get(req, ['body', 'email']);
+//     var password = _.get(req, ['body', 'password']);
+//     var fname = _.get(req, ['body', 'fname']);
+//     var lname = _.get(req, ['body', 'lname']);
 
-</script>
+//     console.log('email', email)
+//     console.log('password', password)
+
+//     try {
+//         if(email && password && fname && lname){
+//             bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
+//                 db.query('insert into users (email, password, fname, lname) values (?,?,?,?)',
+//                 [email, hash, fname, lname],(err, resp, field)=>{
+//                 if(resp) {
+//                     return res.status(200).json({
+//                         resCode: 200,
+//                         ResMessag: 'success'
+                        
+//                     }) 
+//                 }
+//                 else{
+//                     console.log('ERR 2! : bad sql ')
+//                     return res.status(200).json({
+//                         resCode: 400,
+//                         ResMessag: 'bad: bad sql ',
+//                         Log: 2
+//                     }) 
+//                 }
+//             })
+//             });
+           
+//         }
+//         else{
+//             console.log('ERR 1! : Invalid request')
+//             return res.status(200).json({
+//                 resCode: 400,
+//                 ResMessag: 'bad: Invalid request',
+//                 Log: 1
+//             })
+//         }
+//     }
+//     catch(error) {
+//         console.log('ERR 0! :', error)
+//         return res.status(200).json({
+//             resCode: 400,
+//             ResMessag: 'bad',
+//             Log: 0
+//         })
+//     }
+// })
+
+
+// //page
+// app.get("/", function(req,res,next){
+//     res.render('index',{title: 'express' })
+// })
+
+//login 
+app.post('/api/login', jsonParser, function (req, res, next) {
+    db.execute(
+    'SELECT * FROM `users` WHERE email = ?',
+    [req.body.email],
+    function(err, users, fields) {
+        if (err) {res.json({status: 'error', message: err }); return }
+        if(users.length == 0) {res.json({status: 'error', message: 'No users' }); return }
+        bcrypt.compare(req.body.password, users[0].password, function(err, isLogin) {
+            if (isLogin) {
+                var token = jwt.sign({ email: users[0].email }, secret,{ expiresIn: '1h' });
+                res.json({status: 'ok',message: 'login success',token})
+                response.redirect("/");
+            } else{
+                res.json({status: 'error',message: 'login false'})
+            }
+        });
+    }
+  );
+})
+
+// app.get('/logout', function(req,resp,next){
+//     request.session.destroy();
+
+//     response.redirect("/");
+// })
+
+// //authen
+// app.post('/api/authen', jsonParser, function (req, res, next) {
+//     try{
+//         const token = req.headers.authorization.split(' ')[1]
+//         var decoded = jwt.verify(token, secret);
+//         res.json({status: 'ok', decoded })
+//     } catch(err) {
+//         res.json({status: 'error', message: err.message })
+//     }
+  
+// })

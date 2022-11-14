@@ -41,7 +41,7 @@
             </div>
     </nav>
 
-      <div class="container">
+      <div class="container-2">
         <div class="sidebar">
           <button class="menu-bar5" onclick="document.location='HOMEPAGE.html'"><i class="fa-solid fa-backward"></i> HOMEPAGE </button> 
           <h4>MENU</h4>
@@ -482,7 +482,7 @@
                   }
               })        
         } 
-        //getset2history
+        //getset3history
           function render6() {
             $.ajax({
                   method: 'get',
@@ -490,6 +490,38 @@
                   success: (response) => {
 
                       console.log('set3history', response)
+                      if(response.resCode == 200) {
+                        selldata = response.Result;
+                          if(selldata.length > 0) {
+                            var html3 = '';
+                            for (let i = 0; i < selldata.length; i++) {
+                              html3 += `
+                                <tr>
+                                  <td>${selldata[i].Date}</td>
+                                  <td>${selldata[i].stockname}</td> 
+                                  <td>${selldata[i].quantity}</td> 
+                                  <td>${selldata[i].invoid_no}</td> 
+                                </tr>
+                              `;
+                            }   
+                            $("#set3body").html(html3)    
+                            render();      
+                            ClearFields();       
+                        }
+                      }
+                  }, error:(err) => {
+                      console.log('bad', err)
+                  }
+              })        
+        } 
+        //getset4history
+          function render7() {
+            $.ajax({
+                  method: 'get',
+                  url:'http://localhost:3000/api/getset4historyshipsabuy',
+                  success: (response) => {
+
+                      console.log('set4history', response)
                       if(response.resCode == 200) {
                         selldata = response.Result;
                           if(selldata.length > 0) {

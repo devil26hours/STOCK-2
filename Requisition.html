@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BITKUB STOCK</title>
+    <title>Requisition</title>
 
     <link rel="icon" href="./imgs/logotitle.png" type="image/icon type">
 
@@ -41,30 +41,365 @@
             </div>
     </nav>
 
-      <div class="container">
+      <div class="container-2">
         <div class="sidebar">
           <button class="menu-bar5" onclick="document.location='HOMEPAGE.html'"><i class="fa-solid fa-backward"></i> HOMEPAGE </button> 
+          <button class="menu-bar" onclick="render4()" data-bs-toggle="modal" data-bs-target="#modalReq"> รายการคำขอเบิก </button> 
         <!-- <input  onfocus="this.value=''" class="info" id="invoid" type="text" style="text-align: center;" placeholder="กรอกข้อมูลอ้างอิง">  -->
         </div>
 
         <div class="container3">
           <div class="container3-bar">
             <h4>แบบฟอร์มเบิกของ</h4>
-            <input class="menu-barform-1" onfocus="this.value=''" type="text" id="productselectname1" style="text-align: center;" placeholder="กรอกรายละเอียด">
-            <input class="menu-barform-2" onfocus="this.value=''" type="text" id="productselectquantity1" style="text-align: center;" placeholder="จำนวน">
-            <input class="menu-barform-3" onfocus="this.value=''" type="submit" id="" style="text-align: center;" placeholder="กรอกชื่อสินค้า">
-            <input class="menu-barform-4" onfocus="this.value=''" type="text" id="productselectname1" style="text-align: center;" placeholder="กรอกรายละเอียด">
+            <p>
+            <div class="menubar1">
+            <input class="menu-barform-1" onfocus="this.value=''" type="text" id="productnames" style="text-align: center;" placeholder="กรอกชื่อสินค้า">
+            <br>
+            <input class="menu-barform-4" onfocus="this.value=''" type="text" id="detail" style="text-align: center;" placeholder="กรอกรายละเอียด">
+            <br>
+            <input class="menu-barform-2" onfocus="this.value=''" type="text" id="total" style="text-align: center;" placeholder="จำนวน">
+            <br>
+            <button onclick="saverequisition()" class="menu-barform-3">ยืนยัน</button>
+            
+            <button onclick="document.getElementById('total').value = '',document.getElementById('detail').value = '',document.getElementById('productnames').value = ''" class="menu-barform-5">รีเซ็ต</button>
+            </div>
+          </div>
+        </div>
+        <div class="container1-5">
+          <div class="container4">
+            <h5 style="text-align: center; margin-top: 10px;">FLASH</h5>
+            <div class="productcontainer1 scrollbar-primary"> 
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <!-- <th scope="col">Product Name</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Quantity</th> -->
+                    </tr>
+                  </thead>
+                  <tbody id="tbody">
+                    <tbody>
+                      
+                    </tbody>  
+                  </tbody>
+              </table>      
+           </div>
+          </div>
+          <div class="container5">
+            <h5 style="text-align: center; margin-top: 5px;">BITKUB</h5>
+            <div class="productcontainer2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <!-- <th scope="col">Product Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th> -->
+                  </tr>
+                </thead>
+                <tbody id="bbody">
+                  <tbody>
+                    
+                  </tbody>  
+                </tbody>
+            </table> 
+            </div>
+          </div>
+        </div>
+
+        <div class="container6">
+          <h5 style="text-align:center; margin-top: 10px;">รายการเบิกยังไม่อนุมัติ</h5>
+          <div class="productcontainer2">
+            <table class="table">
+              <thead>
+                <tr>
+                  <!-- <th scope="col">Product Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Quantity</th> -->
+                </tr>
+              </thead>
+              <tbody id="cbody">
+                <tbody>
+                  
+                </tbody>  
+              </tbody>
+          </table> 
+        </div>
+      </div>
+
+        <div class="container6">
+          <h5 style="text-align:center; margin-top: 10px;">รายการเบิกอนุมัติแล้ว</h5>
+          <div class="productcontainer2">
+            <table class="table">
+              <thead>
+                <tr>
+                  <!-- <th scope="col">Product Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Quantity</th> -->
+                </tr>
+              </thead>
+              <tbody id="cbody">
+                <tbody>
+                  
+                </tbody>  
+              </tbody>
+            </table> 
+        </div>
+        </div>
+ 
+
+         <!-- modal req-->
+    <div id="modalReq" class="modal fade" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">รายการเบิกของ</h5>  
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <!-- <th scope="col">Product Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Quantity</th> -->
+                </tr>
+              </thead>
+              <tbody id="sbody">
+                <tbody>
+                  
+                </tbody>  
+              </tbody>
+            </table>
+            
+
+          </div>
+          <div class="modal-footer">
+            <button id="closeaddmodal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button  onclick="sellSetProduct()" type="button"  class="btn btn-success">Confirm</button> -->
 
           </div>
         </div>
- 
+      </div>
+    </div>
       
       
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script>
+
+      var data;
+      render()
+      render2()
+      render3()
       
+
+
+      //save requisition
+      function saverequisition() {
+          $.ajax({
+            method: 'post',
+            url:'http://localhost:3000/api/createrequisition',
+            data: {
+              productnames: $("#productnames").val(),
+              total: $("#total").val(),
+              detail: $("#detail").val(),
+            }, success: (response) => {
+                console.log('good', response)
+                if(response.resCode == 200) {
+                  Swal.fire({
+                    icon: 'success',
+                    title:'Complete'
+                  })
+                  render();
+                  render2()
+                  render3()
+                }
+            }, error: (err) => {
+                console.log('bad', err)
+            }
+          })
+        }
+
+      //get flash
+      function render() {
+          $.ajax({
+                method: 'get',
+                url:'http://localhost:3000/api/getallstockflash',
+                success: (response) => {
+                    
+                    console.log('Render Get flash Product !', response)
+                    if(response.resCode == 200) {
+                        data = response.Result;
+                        if(data.length > 0) {
+                          var html = '';
+                          for (let i = 0; i < data.length; i++) {
+                            html += `
+                              <tr>
+                                <td>${data[i].name}</td>
+                                <td><img class="image" src="${data[i].img}" alt=""></td>
+                                <td>${data[i].quantity} ชิ้น</td> 
+                                <td>
+                                <!--<button onclick="editproduct(${data[i].id}, ${i})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit">Edit</button>
+                                <button onclick="deleteproduct(${data[i].id}, ${i}, '${data[i].name}')" type="button" class="btn btn-danger">Delete</button>-->
+                                </td>
+                              </tr>
+                            `;
+                          }   
+                          $("#tbody").html(html)                                          
+                      }
+                    }
+                }, error:(err) => {
+                    console.log('bad', err)
+                }
+            }) 
+        }
+      //get bitkub
+      function render2() {
+          $.ajax({
+                method: 'get',
+                url:'http://localhost:3000/api/getallstockbitkub',
+                success: (response) => {
+                    
+                    console.log('Render Get bitkub Product !', response)
+                    if(response.resCode == 200) {
+                        data = response.Result;
+                        if(data.length > 0) {
+                          var html = '';
+                          for (let i = 0; i < data.length; i++) {
+                            html += `
+                              <tr>
+                                <td>${data[i].name}</td>
+                                <td><img class="image" src="${data[i].img}" alt=""></td>
+                                <td>${data[i].quantity} ชิ้น</td> 
+                                <td>
+                                <!--<button onclick="editproduct(${data[i].id}, ${i})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit">Edit</button>
+                                <button onclick="deleteproduct(${data[i].id}, ${i}, '${data[i].name}')" type="button" class="btn btn-danger">Delete</button>-->
+                                </td>
+                              </tr>
+                            `;
+                          }   
+                          $("#bbody").html(html)                                          
+                      }
+                    }
+                }, error:(err) => {
+                    console.log('bad', err)
+                }
+            }) 
+        }
+
+      //get Requisition
+      function render3() {
+          $.ajax({
+                method: 'get',
+                url:'http://localhost:3000/api/getallstockrequisition',
+                success: (response) => {
+                    
+                    console.log('Render requisition !', response)
+                    if(response.resCode == 200) {
+                        data = response.Result;
+                        if(data.length > 0) {
+                          var html = '';
+                          for (let i = 0; i < data.length; i++) {
+                            html += `
+                              <tr>
+                                <th scope="row">${i+1}</th>
+                                <td>${data[i].productnames}</td>
+                                <td>${data[i].detail} </td> 
+                                <td>${data[i].total} ชิ้น</td> 
+                                </td>
+                              </tr>
+                            `;
+                          }   
+                          $("#cbody").html(html)                                          
+                      }
+                    }
+                }, error:(err) => {
+                    console.log('bad', err)
+                }
+            }) 
+        }
+
+      //get Requisition Req
+      function render4() {
+          $.ajax({
+                method: 'get',
+                url:'http://localhost:3000/api/getallstockrequisition',
+                success: (response) => {
+                    
+                    console.log('Render requisition !', response)
+                    if(response.resCode == 200) {
+                        data = response.Result;
+                        if(data.length > 0) {
+                          var html = '';
+                          for (let i = 0; i < data.length; i++) {
+                            html += `
+                              <tr>
+                                <th scope="row">${i+1}</th>
+                                <td>${data[i].productnames}</td>
+                                <td>${data[i].detail} </td> 
+                                <td>${data[i].total} ชิ้น</td> 
+                                </td>
+                                <td>
+                                <button onclick="update(${data[i].id}, ${i})" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit">ยืนยัน</button>
+                                <td>
+                                <button onclick="deleteproduct(${data[i].id}, ${i}, '${data[i].name}')" type="button" class="btn btn-danger">ยกเลิก</button>
+                                </td>
+                              </tr>
+                            `;
+                          }   
+                          $("#sbody").html(html)                                          
+                      }
+                    }
+                }, error:(err) => {
+                    console.log('bad', err)
+                }
+            }) 
+        }
+
+
+         //delete
+         function deleteproduct(pid, index, productnames){
+          Swal.fire({
+              icon: "warning",
+              title: 'ต้องการยกเลิกคำขอใช่หรือไม่ '+'?',
+              showConfirmButton: false,
+              showDenyButton: true,
+              showCancelButton: true,
+              confirmButtonText: 'Save',
+              denyButtonText: `Delete`,
+          }).then((result) => {
+              if (result.isDenied) {
+                $.ajax({
+                  method: 'delete',
+                  url: 'http://localhost:3000/api/deletestockrequisition',
+                  data: {
+                    id: pid
+                  }, success: (response) => {
+                    console.log('good', response)
+                    if(response.resCode == 200) {
+                      Swal.fire('Changes are saved', '', 'success')
+                    }
+                    render();
+                  render2()
+                  render3()
+                  }, error: (err) =>{
+                    console.log('bad', err)
+                  }
+                })
+                $("#modalReq").trigger('click')
+              
+              }
+          })
+        }
+
+
+
+
+
+
+
+
     </script>
 </body>
 </html>

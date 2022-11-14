@@ -53,7 +53,8 @@ nav {
     border-radius: 2%;
     
 }
-.container {
+/* ถุ */
+.container-2 {
     width: 90vw;
     height: 1vw;
     margin: 0 auto;
@@ -423,11 +424,12 @@ History buy
 /* req */
 
 .container3 {
-    width: 24.5vw;
-    height: 9vw;
-    background: linear-gradient(125deg, #e6ddf3, #66f4ad);
+    width: 53%;
+    height: 15vw;
+    max-height: 20vw;
+    /* background: linear-gradient(125deg, #e6ddf3, #66f4ad); */
     margin-top: 0.7vw;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid grey;
 }
 .container3-bar {
@@ -437,7 +439,46 @@ History buy
     margin-top: 0.5vw
 
 }
+.container1-5 {
+    width: 20vw;
+    height: 10vw;
+    margin-left: 1vw;
+    max-height: 9vw;
+}
+.container4 {
+    width: 20vw;
+    height: 20vw;
+    max-height: 30vw;
+    /* background: linear-gradient(125deg, #ffffda, #f3f39d); */
+    margin-top: 0.7vw;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.container5 {
+    width: 20vw;
+    height: 10vw;
+    max-height: 30vw;
+    /* background: linear-gradient(125deg, #cff5e1, #759182); */
+    margin-top: 0.7vw;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.container6 {
+    width: 30%;
+    height: 100vw;
+    max-height: 30vw;
+    /* background: grey; */
+    margin-top: 0.7vw;
+    margin-left: 2vw;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.menubar1 {
+    width: 100%;
+    height: auto;
+}
 .menu-barform-1 {
+    width: 90%;
     background: white;
     margin-bottom: 5px;
     padding: 5px;
@@ -447,7 +488,7 @@ History buy
     font-size: 1.1vw;
 }
 .menu-barform-2 {
-    width: 60px;
+    width: 90%;
     background: white;
     margin-bottom: 5px;
     padding: 5px;
@@ -458,7 +499,8 @@ History buy
 }
 
 .menu-barform-3 {
-    width: 60px;
+    color: #060010;
+    width:44%;
     background: white;
     margin-bottom: 5px;
     padding: 5px;
@@ -466,12 +508,14 @@ History buy
     border: 1px solid black;
     color: black;
     font-size: 1.1vw;
+    
 }
 .menu-barform-3:hover{
-    background: linear-gradient(125deg, #27fd14, #66f4ad);
+    background: rgb(0, 255, 0);
+    color: white;
 }
 .menu-barform-4 {
-    width: 91.5%;
+    width: 90%;
     background: white;
     margin-bottom: 5px;
     padding: 5px;
@@ -479,4 +523,52 @@ History buy
     border: 1px solid black;
     color: black;
     font-size: 1.1vw;
+}
+
+.menu-barform-5 {
+    color: #060010;
+    width:44%;
+    background: white;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1.1vw;
+    
+}
+.menu-barform-5:hover{
+    background: black;
+    color: white;
+}
+
+.productcontainer1 {
+    width: 20vw;
+    height: 80%;
+    margin-top: 0.7vw;
+    margin-bottom: 10vw;
+    margin-right: 1vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow: hidden;
+}
+.productcontainer1:hover {
+    overflow: scroll;
+    overflow-x: hidden;
+  
+}
+
+.productcontainer2 {
+    width: 20vw;
+    height: 70%;
+    margin-top: 0.7vw;
+    margin-bottom: 10vw;
+    margin-right: 1vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow: hidden;
+}
+.productcontainer2:hover {
+    overflow: scroll;
+    overflow-x: hidden;
 }
